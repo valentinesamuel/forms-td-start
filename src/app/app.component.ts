@@ -10,16 +10,50 @@ export class AppComponent {
   @ViewChild('f') signupForm: NgForm;
   defaultQuestion = 'pet';
   answer = '';
-  // suggestUserName() {
-  //   const suggestedName = 'Superuser';
+  genders = ['male', 'female'];
+  user = {
+    userName: "",
+    mail: "",
+    secretQuestion: "",
+    answer: "",
+    gender: "",
+  }
+  submittedForm = false;
+  suggestUserName() {
+    const suggestedName = 'Superuser';
+    // this.signupForm.setValue(
+    //   {
+    //     userData: {
+    //       username: suggestedName,
+    //       email: ''
+    //     },
+    //     secret: 'teacher',
+    //     questionAnswer: '',
+    //     gender: 'male'
+    //   }
+    // );
+    this.signupForm.form.patchValue({
+      userData: {
+        username: suggestedName,
+      }
+    });
+  }
+
+  // onSubmit(form:NgForm){
+  //   console.log(form);
   // }
 
-// onSubmit(form:NgForm){
-//   console.log(form);
-// }
+  onSubmit() {
+    this.submittedForm = true;
+    // console.log(this.submittedForm);
 
-onSubmit(){
-console.log(this.signupForm);
-}
+    this.user = {
+      userName: this.signupForm.value.userData.username,
+      mail: this.signupForm.value.userData.username,
+      secretQuestion: this.signupForm.value.secret,
+      answer: this.signupForm.value.questionAnswer,
+      gender: this.signupForm.value.gender,
+    }
+  }
 
 }
