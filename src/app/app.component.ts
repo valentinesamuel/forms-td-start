@@ -13,7 +13,7 @@ export class AppComponent {
 
 onSubmit(form:NgForm){
   console.log(form);
- 
+
 }
 
 }
