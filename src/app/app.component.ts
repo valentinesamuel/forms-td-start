@@ -54,6 +54,17 @@ export class AppComponent {
       answer: this.signupForm.value.questionAnswer,
       gender: this.signupForm.value.gender,
     }
+
+    this.signupForm.resetForm({
+      userData: {
+        username: "",
+        email: 'ilivethis@angular.com'
+      },
+      secret: 'teacher',
+      questionAnswer: '',
+      gender: 'female'
+    }
+    );
   }
 
 }
